@@ -5,7 +5,7 @@
 &emsp;&emsp;磨刀不误砍柴工，在开始进行减肥瘦身之前，我们先要分析一下我们的最终的apk的组成部分有哪些，是哪些原因导致我们的App越来越胖，胖到了快被用户抛弃的程度？
 
 #### 分析APK组成
-&emsp;&emsp;在新版的Android Studio的【Build】菜单下，有一个叫做【Analysis APK】的菜单选项，点击这个选项可以从电脑上加载一个Apk文件，然后会得到如下图所示的一个分析结果：
+&emsp;&emsp;在新版的Android Studio的【Build】菜单下，有一个叫做【Analysis APK】的菜单选项，点击这个选项可以从电脑上加载一个Apk文件，然后会得到如下图所示的一个分析结果：  
 ![APK文件组成分析](http://static.liuzhenhua.net/blog.liuzhenhua.net/2017-04-09%2007:29:22.568677微车APK分析.png "APK文件组成分析")  
 这里我使用的是我们公司的产品[【微车APP】](http://http://baike.baidu.com/link?url=zzJaoj1aoLp6jxnEvCGcKkXg5RH0LRH1PLX5O8keQNNp18frOK7LHaP4XwMAM3dEaMJ6k1Guxy_xiljs8YRC5gndbkNT692nc31jjeZxKTG "【微车】")[（微车官网）](http://weiche.me/ "（微车官网）")来作为分析apk，其实从图中可以看到，我们的app还是挺小的，只有14.3M，现在市面上的很多app动不动就是30多兆。即时这样，我还是觉得我们的app有点大了，半年前还只有10M的，这才多长时间，已经长胖50%了，必须动手了，不能放任下去了。好了，废话说了一大堆，我们还是继续分析我们的apk组成吧。我们主要关心的是“Download Size”和“% of Total Download Size”这两栏，因为在apk文件中，实际占用的存储即时这里的“Download Size”这一栏。所以从图中我们可以看出，我们微车APP中占比最大的一部分是res目录，这也是在我预料之内的，毕竟我们为了让我们微车APP具有高颜值，使用了大量精美的图片以及其他设计资源。点开res目录，发现里面主要是图片资源占大头，那么好吧，让我们先从图片着手。
 
@@ -26,12 +26,12 @@
 &emsp;&emsp;一般来说，Android为了适用不同分辨率和不同大小的屏幕，支持开发中适用多套资源文件，所以APP中可能对于一张图片的多个尺寸的副本，随着现在手机性能的提升，我们可以考虑只使用一套分辨率最高的图片。
 
 #### 使用图片着色方案和图片变换方案
-&emsp;&emsp;Android在5.0时，支持着色方案，对于一些只是颜色不同的图片资源，我们可以使用着色方案处理，而不用像以前一样，必须制作多套不同颜色的图片。5.0以下版本，对于着色功能支持较少，但是ImageView是可以支持着色方案的，所以我们还是可以适当的使用着色方案，或者图片变换的方式复用图片。
+&emsp;&emsp;Android在5.0时，支持着色方案，对于一些只是颜色不同的图片资源，我们可以使用着色方案处理，而不用像以前一样，必须制作多套不同颜色的图片。5.0以下版本，对于着色功能支持较少，但是ImageView是可以支持着色方案的，所以我们还是可以适当的使用着色方案，或者图片变换的方式复用图片。  
 ![着色方案](http://static.liuzhenhua.net/blog.liuzhenhua.net/2017-04-09%2008:12:44.959471着色方案.png "着色方案")  
 这张图中的`ImageView`表示一个“箭头”，原本是一个灰色的箭头图片，这里使用了着色`tint`属性，使得这个箭头显示为绿色，并且使用了`rotation`让箭头旋转了90度变成向下的箭头。
 
 #### 使用WEBP图片格式
-&emsp;&emsp;对于图片资源，Google还有更耗的方案，那就是webp，webp是Google开发的一种图片压缩格式，相比传统的JPEG和png，在效率上有很大提高，废话不多说，上图：
+&emsp;&emsp;对于图片资源，Google还有更耗的方案，那就是webp，webp是Google开发的一种图片压缩格式，相比传统的JPEG和png，在效率上有很大提高，废话不多说，上图：  
 ![](http://static.liuzhenhua.net/blog.liuzhenhua.net/2017-04-09%2008:38:23.907638webp对比.png)  
 这个Android开发官网里的一张webp和jpg图片的对比，肉眼几乎看不出什么区别，但是占用存储大小webp比jpg小很多。更多关于webp的只是，请Google。
 
