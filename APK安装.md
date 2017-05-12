@@ -19,7 +19,7 @@
 - data/system/packages.xml&emsp;&emsp;这个文件记录已安装的app的包名，安装包位置，nativeLibraryPath，还有uid，签名证书，所需权限等信息，相当于packages.list文件的复杂版，信息更全面
 
 ### odex文件组成格式
-![odex文件格式](images/odex文件结构.png "odex文件格式")  
+![odex文件结构](https://raw.githubusercontent.com/liuzhenhuanet/android-blog/master/images/odex文件结构.png "odex文件结构")  
 
 ### 安装过程
 - 等待；

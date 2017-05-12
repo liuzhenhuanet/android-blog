@@ -1,0 +1,2 @@
+在相对github图片地址前加上以下链接
+https://raw.githubusercontent.com/liuzhenhuanet/android-blog/master/
